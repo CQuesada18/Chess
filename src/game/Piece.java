@@ -1,6 +1,6 @@
 package game;
 
-public class Piece {
+public abstract class Piece {
 	int locationX, locationY;
 	PieceType type;
 	Board.Tile locatedOn;
@@ -36,6 +36,7 @@ public class Piece {
 	public String getRep() {
 		return type.toString();
 	}
+	abstract public void generateMove();
 	
 }
 enum PieceType {

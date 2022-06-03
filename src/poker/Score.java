@@ -22,7 +22,7 @@ public class Score extends JLabel {
 	}
 	
 	public static JPanel getScoresAsPanel(List<Score> scores) {
-		if (scores.size() > 8 || scores.size() < 0) {
+		if (scores.size() > 8 || scores.size() < 2) {
 			throw new IllegalArgumentException("Invalid size for \"scores\"");
 		}
 		JPanel scorePanel = new JPanel();

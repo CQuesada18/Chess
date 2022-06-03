@@ -6,5 +6,11 @@ public class Pawn extends Piece {
 		super(x, y);
 		this.type = PieceType.Pawn;
 	}
+
+	public void generateMove() {
+
+	}
+	
+	
 	
 }
