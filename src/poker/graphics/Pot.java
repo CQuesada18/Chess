@@ -1,7 +1,8 @@
-package poker;
+package poker.graphics;
 
 import javax.swing.JLabel;
 
+@SuppressWarnings("serial")
 public class Pot extends JLabel {
 	int balance;
 	

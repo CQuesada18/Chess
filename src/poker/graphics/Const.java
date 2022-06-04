@@ -1,4 +1,4 @@
-package poker;
+package poker.graphics;
 
 public class Const {
 	static class Suit {

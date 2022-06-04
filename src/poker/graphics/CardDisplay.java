@@ -1,4 +1,4 @@
-package poker;
+package poker.graphics;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;

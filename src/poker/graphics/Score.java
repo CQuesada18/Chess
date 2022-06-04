@@ -1,4 +1,4 @@
-package poker;
+package poker.graphics;
 
 import java.awt.Font;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class Score extends JLabel {
 	int score;
 	String name;

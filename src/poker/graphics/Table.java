@@ -1,4 +1,4 @@
-package poker;
+package poker.graphics;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,9 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
-import poker.Const.Suit;
-import poker.Const.Value;
+import poker.graphics.Const.Suit;
+import poker.graphics.Const.Value;
 
+@SuppressWarnings("serial")
 public class Table extends JPanel{
 	// Left side things
 	JPanel left;
@@ -32,6 +33,8 @@ public class Table extends JPanel{
 	
 	// Right things
 	JPanel right;
+	ChatSender chatSender;
+	static Chat chatArea;
 
 	public Table() {
 		createBoard();
@@ -73,6 +76,11 @@ public class Table extends JPanel{
 		chatTitle.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 36));
 		chatTitle.setBounds((int) (.065 * Main.WIDTH),(int) (Main.HEIGHT * 0.005), 150, 100);
 		
+		pot = new Pot();
+		pot.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 36));
+		pot.setBounds((int) (.05 * Main.WIDTH),(int) (Main.HEIGHT * 0.5), 150, 100);
+		left.add(pot);
+		
 		
 		scoresPanel = Score.getScoresAsPanel(playerScores);
 		scoresPanel.setBackground(Color.DARK_GRAY);
@@ -80,10 +88,12 @@ public class Table extends JPanel{
 		left.add(scoreTitle);
 		right.add(chatTitle);
 		left.add(scoresPanel);
+		for (JLabel score: playerScores) left.add(score);
 		
-		Chat chat = new Chat();
-		//Right Chat Scroll Pane
-		JScrollPane sp = new JScrollPane(chat, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+		//Right Stuff
+		chatArea = new Chat();
+		JScrollPane sp = new JScrollPane(chatArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		sp.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
 			protected void configureScrollBarColors() {
 				this.thumbColor = Color.BLACK;
@@ -93,11 +103,8 @@ public class Table extends JPanel{
 		});
 		sp.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.BLACK));
 		right.add(sp, FlowLayout.CENTER);
-
-
-		
-		pot = new Pot();
-		for (JLabel score: playerScores) left.add(score);
+		chatSender = new ChatSender();
+		right.add(chatSender);
 		
 		// ALL Middle Stuff
 		JPanel centerCardPanel = new JPanel();

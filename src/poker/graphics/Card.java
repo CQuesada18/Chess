@@ -1,11 +1,9 @@
-package poker;
+package poker.graphics;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.io.FileNotFoundException;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -37,7 +35,7 @@ public class Card {
 	public JLabel getCardDisplay() {
 		image = image.getScaledInstance(WIDTH, HEIGHT, Image.SCALE_DEFAULT);
 		JLabel img = new JLabel(new ImageIcon(image));
-		img.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+
 		img.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		return img;
 	}
