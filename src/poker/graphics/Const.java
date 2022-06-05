@@ -1,26 +1,64 @@
 package poker.graphics;
 
+import java.awt.Font;
+
 public class Const {
-	static class Suit {
-		public static final int SPADES = 4;
-		public static final int HEARTS = 3;
-		public static final int DIAMONDS = 2;
-		public static final int CLUBS = 1;
+	public static class Fonts {
+		public static final Font TITLE = new Font(Font.SANS_SERIF,  Font.BOLD, 36);
+		public static final Font CHAT_MESSAGE = new Font(Font.SANS_SERIF,  Font.PLAIN, 18);
+		public static final Font SCORE = new Font(Font.SANS_SERIF, Font.PLAIN, 20);
+	}
+	
+	enum Suit {
+		SPADES(4),
+		HEARTS(3),
+		DIAMONDS(2),
+		CLUBS(1);
+		
+		private final int value;
+		
+		Suit(int value) {
+			this.value = value;
+		}
+		
+		public int getValue() {
+			return this.value;
+		}
+		
+		public String getName() {
+			return this.name();
+		}
 	}
 
-	static class Value {
-		public static final int ACE = 14;
-		public static final int KING = 13;
-		public static final int QUEEN = 12;
-		public static final int JACK = 11;
-		public static final int TEN = 10;
-		public static final int NINE = 9;
-		public static final int EIGHT = 8;
-		public static final int SEVEN = 7;
-		public static final int SIX = 6;
-		public static final int FIVE = 5;
-		public static final int FOUR = 4;
-		public static final int THREE = 3;
-		public static final int TWO = 2;
+	enum Value {
+		ACE(14),
+		KING(13),
+		QUEEN(12),
+		JACK(11),
+		TEN(10),
+		NINE(9),
+		EIGHT(8),
+		SEVEN(7),
+		SIX(6),
+		FIVE(5),
+		FOUR(4),
+		THREE(3),
+		TWO(2);
+		
+		private final int value;
+		
+		Value(int value) {
+			this.value = value;
+		}
+		
+		public int getValue() {
+			return this.value;
+		}
+		
+		public String getName() {
+			return this.name();
+		}
 	}
+	
+	
 }

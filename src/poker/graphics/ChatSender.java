@@ -42,7 +42,7 @@ public class ChatSender extends JPanel implements ActionListener {
 		        }
 		    }
 		   });
-		userInput.setPreferredSize(new Dimension((int) (Main.WIDTH * .1), (int) (Main.HEIGHT * .03)));
+		userInput.setPreferredSize(new Dimension(Main.fracWidth(.1), Main.fracHeight(.03)));
 		DefaultCaret caret = (DefaultCaret)userInput.getCaret();
 		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 		caret.setBlinkRate(500);
@@ -73,7 +73,7 @@ public class ChatSender extends JPanel implements ActionListener {
 			
 		});
 		sendButton = new JButton("Send");
-		sendButton.setSize((int) (Main.WIDTH * .3), (int) (Main.HEIGHT * .5));
+		sendButton.setSize(Main.fracWidth(.3), Main.fracHeight(.5));
 		sendButton.addActionListener(this);
 		this.setLayout(new FlowLayout());
 		this.add(userInput);
@@ -83,7 +83,7 @@ public class ChatSender extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String toAdd = userInput.getText();
 		userInput.setText("");
-		chatBox.addText(toAdd);
+		chatBox.addPlayerText(toAdd);
 		
 	}
 }

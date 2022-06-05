@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.util.LinkedList;
 
 import javax.swing.BorderFactory;
@@ -13,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
+import poker.graphics.Const.Fonts;
 import poker.graphics.Const.Suit;
 import poker.graphics.Const.Value;
 
@@ -48,14 +48,14 @@ public class Table extends JPanel{
 		middle = new JPanel();
 		right = new JPanel();
 		
-		left.setPreferredSize(new Dimension((int)(Main.WIDTH * .2), Main.HEIGHT));
+		left.setPreferredSize(new Dimension(Main.fracWidth(.2), Main.HEIGHT));
 		left.setBackground(Color.DARK_GRAY);
 		left.setLayout(null);
 		right.setLayout(new FlowLayout());
-		middle.setPreferredSize(new Dimension((int)(Main.WIDTH * .6), Main.HEIGHT));
+		middle.setPreferredSize(new Dimension(Main.fracWidth(.6), Main.HEIGHT));
 		middle.setLayout(new BorderLayout());
 		middle.setBackground(Color.DARK_GRAY);
-		right.setPreferredSize(new Dimension((int)(Main.WIDTH * .2), Main.HEIGHT));
+		right.setPreferredSize(new Dimension(Main.fracWidth(.2), Main.HEIGHT));
 		right.setBackground(Color.DARK_GRAY);
 		
 		left.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
@@ -71,20 +71,20 @@ public class Table extends JPanel{
 		playerScores.add(new Score("Funny", 1));
 		// END DEBUG
 		
-		scoreTitle.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 36));
-		scoreTitle.setBounds((int) (.05 * Main.WIDTH),(int) (Main.HEIGHT * 0.005), 150, 100);
-		chatTitle.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 36));
-		chatTitle.setBounds((int) (.065 * Main.WIDTH),(int) (Main.HEIGHT * 0.005), 150, 100);
+		scoreTitle.setFont(Fonts.TITLE);
+		scoreTitle.setBounds(Main.fracWidth(.05), Main.fracHeight(.005), 150, 100);
+		chatTitle.setFont(Fonts.TITLE);
+		chatTitle.setBounds(Main.fracWidth(.065), Main.fracHeight(.005), 150, 100);
 		
 		pot = new Pot();
-		pot.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 36));
-		pot.setBounds((int) (.05 * Main.WIDTH),(int) (Main.HEIGHT * 0.5), 150, 100);
+		pot.setFont(Fonts.TITLE);
+		pot.setBounds(Main.fracWidth(.05), Main.fracHeight(0.5), 150, 100);
 		left.add(pot);
 		
 		
 		scoresPanel = Score.getScoresAsPanel(playerScores);
 		scoresPanel.setBackground(Color.DARK_GRAY);
-		scoresPanel.setBounds(25, 100, (int) (Main.WIDTH * .15), (int) (Main.HEIGHT * .3));
+		scoresPanel.setBounds(25, 100, Main.fracWidth(.15), Main.fracHeight(.3));
 		left.add(scoreTitle);
 		right.add(chatTitle);
 		left.add(scoresPanel);
@@ -114,7 +114,7 @@ public class Table extends JPanel{
 		centerCards.add(CardDisplay.displayCard(new Card(Suit.DIAMONDS, Value.TWO))); 
 		centerCards.add(CardDisplay.displayCard(new Card(Suit.CLUBS, Value.NINE)));
 		centerCards.add(CardDisplay.displayCard(new Card(Suit.HEARTS, Value.KING))); 
-		centerCardPanel.setSize((int) (Main.WIDTH * .6), (int) (Main.HEIGHT * .3));
+		centerCardPanel.setSize(Main.fracWidth(.6), Main.fracHeight(.3));
 		
 		for (JPanel centerCard: centerCards) centerCardPanel.add(centerCard);
 		middle.add(centerCardPanel, BorderLayout.NORTH);

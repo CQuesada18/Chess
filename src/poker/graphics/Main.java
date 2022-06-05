@@ -38,4 +38,12 @@ public class Main {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
+	
+	public static int fracWidth(double fraction) {
+		return (int) fraction * WIDTH;
+	}
+	
+	public static int fracHeight(double fraction) {
+		return (int) fraction * HEIGHT;
+	}
 }
