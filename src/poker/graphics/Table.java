@@ -28,6 +28,7 @@ public class Table extends JPanel{
 	// Middle things
 	JPanel middle;
 	LinkedList<JPanel> centerCards = new LinkedList<>();
+	JPanel centerCardPanel;
 	JPanel leftCard = new JPanel();
 	JPanel rightCard = new JPanel();
 	
@@ -107,7 +108,7 @@ public class Table extends JPanel{
 		right.add(chatSender);
 		
 		// ALL Middle Stuff
-		JPanel centerCardPanel = new JPanel();
+		centerCardPanel = new JPanel();
 		centerCardPanel.setBackground(Color.DARK_GRAY);
 		centerCards.add(CardDisplay.displayCard(new Card(Suit.SPADES, Value.ACE)));
 		centerCards.add(CardDisplay.displayCard(new Card(Suit.SPADES, Value.EIGHT))); 
@@ -115,6 +116,7 @@ public class Table extends JPanel{
 		centerCards.add(CardDisplay.displayCard(new Card(Suit.CLUBS, Value.NINE)));
 		centerCards.add(CardDisplay.displayCard(new Card(Suit.HEARTS, Value.KING))); 
 		centerCardPanel.setSize(Main.fracWidth(.6), Main.fracHeight(.3));
+		centerCardPanel.setBackground(Color.DARK_GRAY);
 		
 		for (JPanel centerCard: centerCards) centerCardPanel.add(centerCard);
 		middle.add(centerCardPanel, BorderLayout.NORTH);

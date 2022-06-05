@@ -1,9 +1,11 @@
 package poker.graphics;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.io.FileNotFoundException;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -19,8 +21,8 @@ public class Card implements Comparable<Card> {
 	public Image image;
 	private Suit suit;
 	private Value value;
-	protected static final int WIDTH = (int) (Main.WIDTH * .1);
-	protected static final int HEIGHT = (int) (Main.HEIGHT * .25);
+	protected static final int WIDTH = Main.fracWidth(.1);
+	protected static final int HEIGHT = Main.fracHeight(.25);
 	
 	/**
 	 * Constructs a card given a suit and value
@@ -57,9 +59,9 @@ public class Card implements Comparable<Card> {
 	 * @return JLabel of the card
 	 */
 	public JLabel getCardDisplay() {
-		image = image.getScaledInstance(WIDTH, HEIGHT, Image.SCALE_DEFAULT);
+		image = image.getScaledInstance((int)(WIDTH * .9), (int)(HEIGHT * .9), Image.SCALE_DEFAULT);
 		JLabel img = new JLabel(new ImageIcon(image));
-
+		img.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
 		img.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		return img;
 	}
