@@ -7,11 +7,21 @@ import javax.swing.JPanel;
 
 import poker.graphics.Const.Fonts;
 
+/**
+ * Responsible for displaying all scores from each player
+ * @author Matthew Vandenberg
+ *
+ */
 @SuppressWarnings("serial")
 public class Score extends JLabel {
 	int score;
 	String name;
 	
+	/**
+	 * Construct a new Score object given name and score.
+	 * @param name Name of score
+	 * @param score Score of score
+	 */
 	public Score(String name, int score) {
 		this.score = score;
 		this.name = name;
@@ -23,6 +33,11 @@ public class Score extends JLabel {
 		return name + ": " + score;
 	}
 	
+	/**
+	 * Collectively returns a list of all score objects and returns as a viewable object.
+	 * @param scores Scores to generate JPanel for
+	 * @return JPanel representing all scores
+	 */
 	public static JPanel getScoresAsPanel(List<Score> scores) {
 		if (scores.size() > 8 || scores.size() < 2) {
 			throw new IllegalArgumentException("Invalid size for \"scores\"");

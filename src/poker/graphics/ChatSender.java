@@ -22,6 +22,9 @@ public class ChatSender extends JPanel implements ActionListener {
 	JTextField userInput;
 	JButton sendButton;
 	
+	/**
+	 * Controls sending player messages
+	 */
 	public ChatSender() {
 		super();
 		userInput = new JTextField();

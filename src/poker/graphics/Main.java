@@ -40,10 +40,10 @@ public class Main {
 	}
 	
 	public static int fracWidth(double fraction) {
-		return (int) fraction * WIDTH;
+		return (int) (fraction * WIDTH);
 	}
 	
 	public static int fracHeight(double fraction) {
-		return (int) fraction * HEIGHT;
+		return (int) (fraction * HEIGHT);
 	}
 }
